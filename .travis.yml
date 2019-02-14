@@ -4,8 +4,9 @@ cache:
 
 jobs:
   include:
-    - install: false
+    - install: true
       script: mvn test
+      env: FOO=foo
       before_cache:
       - rm -rf $HOME/CACHE; find $TRAVIS_BUILD_DIR -name .ekstazi | while read line;
         do du -sh $line; DIR=$(dirname $HOME/CACHE$line); mkdir -p $DIR; cp -r $line
@@ -15,8 +16,9 @@ jobs:
         $HOME/CACHE -name .ekstazi | while read line; do du -sh $line;         DIR=$(dirname
         ${line#$HOME/CACHE}); if [[ -d ${DIR#.ekstazi/} ]]; then cp -r $line $DIR; fi;
         done
-    - install: false
+    - install: true
       script: mvn test
+      env: BAR=bar
       before_cache:
       - rm -rf $HOME/CACHE; find $TRAVIS_BUILD_DIR -name .ekstazi | while read line; do
         du -sh $line;         DIR=$(dirname $HOME/CACHE$line); mkdir -p $DIR; cp -r $line
