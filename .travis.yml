@@ -1,0 +1,32 @@
+cache:
+  directories:
+  - $HOME/CACHE
+
+jobs:
+  include:
+    - install: false
+      script: mvn test
+      before_cache:
+      - rm -rf $HOME/CACHE; find $TRAVIS_BUILD_DIR -name .ekstazi | while read line;
+        do du -sh $line; DIR=$(dirname $HOME/CACHE$line); mkdir -p $DIR; cp -r $line
+        $DIR; done
+      before_script:
+      - find $TRAVIS_BUILD_DIR -name .ekstazi | while read line; do rm -rf $line; done;find
+        $HOME/CACHE -name .ekstazi | while read line; do du -sh $line;         DIR=$(dirname
+        ${line#$HOME/CACHE}); if [[ -d ${DIR#.ekstazi/} ]]; then cp -r $line $DIR; fi;
+        done
+    - install: false
+      script: mvn test
+      before_cache:
+      - rm -rf $HOME/CACHE; find $TRAVIS_BUILD_DIR -name .ekstazi | while read line; do
+        du -sh $line;         DIR=$(dirname $HOME/CACHE$line); mkdir -p $DIR; cp -r $line
+        $DIR; done
+      - cp /tmp/classpathFile $HOME/CACHE/classpathFile
+      before_script:
+      - find $TRAVIS_BUILD_DIR -name .ekstazi | while read line; do rm -rf $line; done;find
+        $HOME/CACHE -name .ekstazi | while read line; do du -sh $line;         DIR=$(dirname
+        ${line#$HOME/CACHE}); if [[ -d ${DIR#.ekstazi/} ]]; then cp -r $line $DIR; fi; done
+      - sed -i 's/<gib.enabled>false/<gib.enabled>true/' $TRAVIS_BUILD_DIR/pom.xml;
+      - if [[ -e $HOME/CACHE/classpathFile ]]; then cp $HOME/CACHE/classpathFile /tmp/; fi
+
+language: java
