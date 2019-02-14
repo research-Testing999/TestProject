@@ -43,6 +43,7 @@
     </build>
     <properties>
         <gib.commitRange>${env.TRAVIS_COMMIT_RANGE}</gib.commitRange>
+        <!-- <gib.referenceBranch>refs/remotes/origin/master</gib.referenceBranch> -->
         <gib.enabled>false</gib.enabled>
         <gib.useEkstazi>true</gib.useEkstazi>
         <gib.excludePathRegex>(.*\.apt$)|(.*\.txt$)|(.*\.md$)|(.*\.html$)|(.*\.rst$)|(.*\.scss$)|(.*\.css$)|(.*\.png$)|(.*\.py$)|(.*README$)|(.*README\.*)|(.*\.jpg$)|(.*\.jpeg$)|(.*NOTICE$)|(.*\.git.*$)|(site.xml)|(index.xml)|(checkstyle.xml)</gib.excludePathRegex>
