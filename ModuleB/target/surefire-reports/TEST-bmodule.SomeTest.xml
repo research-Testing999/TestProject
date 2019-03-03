@@ -24,7 +24,7 @@
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="os.name" value="Linux"/>
     <property name="gib.enabled" value="true"/>
-    <property name="gib.referenceBranch" value="27fd868b53043e6ea30afae15aa4e2834bb11000"/>
+    <property name="gib.referenceBranch" value="4ebbf4e25ac6643b734dac90ef906733fc3c439c"/>
     <property name="classworlds.conf" value="/mnt/c/Program Files/apache-maven-3.6.0/bin/m2.conf"/>
     <property name="sun.jnu.encoding" value="UTF-8"/>
     <property name="java.library.path" value="/usr/java/packages/lib/amd64:/usr/lib/x86_64-linux-gnu/jni:/lib/x86_64-linux-gnu:/usr/lib/x86_64-linux-gnu:/usr/lib/jni:/lib:/usr/lib"/>
