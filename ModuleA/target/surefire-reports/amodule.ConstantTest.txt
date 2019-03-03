@@ -1,9 +1,9 @@
 -------------------------------------------------------------------------------
 Test set: amodule.ConstantTest
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.089 sec <<< FAILURE!
-test(amodule.ConstantTest)  Time elapsed: 0.021 sec  <<< FAILURE!
-org.junit.ComparisonFailure: expected:<test[]> but was:<test[a]>
+Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.316 sec <<< FAILURE!
+test(amodule.ConstantTest)  Time elapsed: 0.056 sec  <<< FAILURE!
+org.junit.ComparisonFailure: expected:<tes[]> but was:<tes[ta]>
 	at org.junit.Assert.assertEquals(Assert.java:115)
 	at org.junit.Assert.assertEquals(Assert.java:144)
 	at amodule.ConstantTest.test(ConstantTest.java:18)
@@ -24,6 +24,7 @@ org.junit.ComparisonFailure: expected:<test[]> but was:<test[a]>
 	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
 	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
 	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.ekstazi.junit.CoverageRunner.run(Unknown Source)
 	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:252)
 	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:141)
 	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:112)
