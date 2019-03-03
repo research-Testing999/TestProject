@@ -11,6 +11,6 @@ import org.junit.Assert;
 public class SomeTest {
 	@Test
 	public void test() {
-		Assert.assertTrue(2 == (2 * 1 * 1));
+		Assert.assertTrue(12 == (12 * 1 * 1));
 	}
 }
