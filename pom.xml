@@ -46,7 +46,7 @@
         <!-- <gib.referenceBranch>refs/remotes/origin/master</gib.referenceBranch> -->
         <gib.enabled>true</gib.enabled>
         <gib.useEkstazi>false</gib.useEkstazi>
-        <gib.classpathFile></gib.classpathFile>
-	<gib.excludePathRegex></gib.excludePathRegex>
+        <!--<gib.classpathFile></gib.classpathFile>-->
+	<!--<gib.excludePathRegex></gib.excludePathRegex>-->
     </properties>
 </project>
