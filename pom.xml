@@ -42,11 +42,10 @@
         </plugins>
     </build>
     <properties>
-        <gib.commitRange>b62df1764faa5149fdb8cc975d8335aa602252be...76803b64cbc9bdd692c7cedf6250e804837c6423</gib.commitRange>
+        <gib.commitRange>0b2351684183f7407ad02ee7e67cd0303620283e...a4c7ae9ae4cf4a6c782adf3b0d6e992d572fe510</gib.commitRange>
         <!-- <gib.referenceBranch>refs/remotes/origin/master</gib.referenceBranch> -->
         <gib.enabled>true</gib.enabled>
         <gib.useEkstazi>false</gib.useEkstazi>
-	<gib.excludePathRegex></gib.excludePathRegex>
         <gib.classpathFile>/tmp/classpathFile</gib.classpathFile>
     </properties>
 </project>
