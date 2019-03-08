@@ -15,6 +15,6 @@ public class ConstantTest {
 		
 		Assert.assertTrue(f.exists());
 		String str = Files.readAllLines(f.toPath()).get(0);
-		Assert.assertEquals("tes", str);
+		Assert.assertEquals("te", str);
 	}
 }
