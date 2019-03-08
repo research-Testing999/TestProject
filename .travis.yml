@@ -1,35 +1,24 @@
+after_success:
+- mvn clean cobertura:cobertura coveralls:report
+before_install:
+- if [ "$TRAVIS_OS_NAME" == "osx" ];        then sed -i '' 's/<gib.enabled>true/<gib.enabled>false/'
+  $TRAVIS_BUILD_DIR/pom.xml;        else sed -i 's/<gib.enabled>true/<gib.enabled>false/'
+  $TRAVIS_BUILD_DIR/pom.xml;        fi
+before_script:
+- echo "MAVEN_OPTS='-Xmx1024m -XX:MaxPermSize=256m'" > ~/.mavenrc
+- if [ "$TRAVIS_OS_NAME" == "osx" ];        then sed -i '' 's/<gib.enabled>false/<gib.enabled>true/'
+  $TRAVIS_BUILD_DIR/pom.xml;        else sed -i 's/<gib.enabled>false/<gib.enabled>true/'
+  $TRAVIS_BUILD_DIR/pom.xml;        fi
 cache:
   directories:
   - $HOME/CACHE
-
-jobs:
-  include:
-    - install: true
-      script: mvn test
-      env: FOO=foo
-      before_cache:
-      - rm -rf $HOME/CACHE; find $TRAVIS_BUILD_DIR -name .ekstazi | while read line;
-        do du -sh $line; DIR=$(dirname $HOME/CACHE$line); mkdir -p $DIR; cp -r $line
-        $DIR; done
-      before_script:
-      - find $TRAVIS_BUILD_DIR -name .ekstazi | while read line; do rm -rf $line; done;find
-        $HOME/CACHE -name .ekstazi | while read line; do du -sh $line;         DIR=$(dirname
-        ${line#$HOME/CACHE}); if [[ -d ${DIR#.ekstazi/} ]]; then cp -r $line $DIR; fi;
-        done
-    - install: true
-      script: mvn test
-      env: BAR=bar
-      before_cache:
-      - rm -rf $HOME/CACHE; find $TRAVIS_BUILD_DIR -name .ekstazi | while read line; do
-        du -sh $line;         DIR=$(dirname $HOME/CACHE$line); mkdir -p $DIR; cp -r $line
-        $DIR; done
-      - cp /tmp/classpathFile $HOME/CACHE/classpathFile
-      before_script:
-      - find $TRAVIS_BUILD_DIR -name .ekstazi | while read line; do rm -rf $line; done;find
-        $HOME/CACHE -name .ekstazi | while read line; do du -sh $line;         DIR=$(dirname
-        ${line#$HOME/CACHE}); if [[ -d ${DIR#.ekstazi/} ]]; then cp -r $line $DIR; fi; done
-      - sed -i 's/<gib.enabled>false/<gib.enabled>true/' $TRAVIS_BUILD_DIR/pom.xml;
-      - sed -i '/<plugins>/,/<\/plugins>/d' $TRAVIS_BUILD_DIR/pom.xml;
-      - if [[ -e $HOME/CACHE/classpathFile ]]; then cp $HOME/CACHE/classpathFile /tmp/; fi
-
+env:
+- CACHE_MARK=1
+jdk:
+- oraclejdk8
 language: java
+script:
+- touch /tmp/NOW;echo SCRIPT_START $(date)
+- mvn test -B
+- echo SCRIPT_END $(date);echo TESTNUM $(grep -l "<testcase" $(find $TRAVIS_BUILD_DIR
+  -name TEST-*.xml -newer /tmp/NOW | wc -l))
