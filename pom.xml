@@ -17,37 +17,4 @@
   		<scope>test</scope>
   	</dependency>
   </dependencies>
-<build>
-        <extensions>
-            <extension>
-                <groupId>edu.illinois</groupId>
-                <artifactId>incremental-builder-with-ekstazi</artifactId>
-                <version>3.5.5</version>
-            </extension>
-        </extensions>
-    <plugins>
-            <plugin>
-                <groupId>org.ekstazi</groupId>
-                <artifactId>ekstazi-maven-plugin</artifactId>
-                <version>4.6.3</version>
-                <executions>
-                    <execution>
-                        <id>ekstazi</id>
-                        <goals>
-                            <goal>select</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-        </plugins>
-    </build>
-    <properties>
-        <gib.commitRange>0b2351684183f7407ad02ee7e67cd0303620283e...a4c7ae9ae4cf4a6c782adf3b0d6e992d572fe510</gib.commitRange>
-        <!-- <gib.referenceBranch>refs/remotes/origin/master</gib.referenceBranch> -->
-        <gib.enabled>true</gib.enabled>
-        <gib.useEkstazi>false</gib.useEkstazi>
-	<gib.uncommited>false</gib.uncommited>
-        <!--<gib.classpathFile></gib.classpathFile>-->
-	<!--<gib.excludePathRegex></gib.excludePathRegex>-->
-    </properties>
-</project>
+  </project>
