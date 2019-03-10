@@ -11,6 +11,6 @@ import org.junit.Assert;
 public class ConstantTest {
 	@Test
 	public void test() throws IOException {
-	    Assert.assertEquals(1,1);	
+	    Assert.assertEquals(10,10);	
 	}
 }
